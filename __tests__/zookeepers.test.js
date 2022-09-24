@@ -56,3 +56,25 @@ test('finds by id', () => {
 
   expect(result.name).toBe('Isabella');
 });
+
+test('validates age', () => {
+  const zookeeper = {
+    id: '2',
+    name: 'Raksha',
+    age: 31,
+    favoriteAnimal: 'penguin'
+  };
+
+  const invalidZookeeper = {
+    id: '3',
+    name: 'Isabella',
+    age: '67',
+    favoriteAnimal: 'bear'
+  };
+
+  const result = validateZookeeper(zookeeper);
+  const result2 = validateZookeeper(invalidZookeeper);
+
+  expect(result).toBe(true);
+  expect(result2).toBe(false);
+});
